@@ -20,7 +20,7 @@ class Robohash(object):
     The original use-case was to create somewhat memorable images to represent a RSA key.
     """
 
-    def __init__(self,string,hashcount=11,ignoreext = True):
+    def __init__(self, string, hashcount=11, ignoreext=True):
         """
         Creates our Robohasher
         Takes in the string to make a Robohash out of.
@@ -53,7 +53,7 @@ class Robohash(object):
         self.colors = self._listdirs(self.resourcedir + 'sets/set1')
         self.format = 'png'
 
-    def _remove_exts(self,string):
+    def _remove_exts(self, string):
         """
         Sets the string, to create the Robohash
         """
@@ -71,7 +71,7 @@ class Robohash(object):
         return string
 
 
-    def _create_hashes(self,count):
+    def _create_hashes(self, count):
         """
         Breaks up our hash into slots, so we can pull them out later.
         Essentially, it splits our SHA/MD5/etc into X parts.
@@ -89,10 +89,10 @@ class Robohash(object):
         # This shouldn't reduce the security since it should only draw from one set of these in practice.
         self.hasharray = self.hasharray + self.hasharray
 
-    def _listdirs(self,path):
+    def _listdirs(self, path):
         return [d for d in natsort.natsorted(os.listdir(path)) if os.path.isdir(os.path.join(path, d))]
 
-    def _get_list_of_files(self,path):
+    def _get_list_of_files(self, path):
         """
         Go through each subdirectory of `path`, and choose one file from each to use in our hash.
         Continue to increase self.iter, so we use a different 'slot' of randomness each time.
@@ -122,7 +122,7 @@ class Robohash(object):
 
         return chosen_files
 
-    def assemble(self,roboset=None,color=None,format=None,bgset=None,sizex=300,sizey=300):
+    def assemble(self, roboset=None, color=None, format=None, bgset=None, sizex=300, sizey=300):
         """
         Build our Robot!
         Returns the robot image itself.
