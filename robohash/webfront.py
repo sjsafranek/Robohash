@@ -3,7 +3,7 @@
 
 # Find details about this project at https://github.com/e1ven/robohash
 
-from __future__ import unicode_literals
+# from __future__ import unicode_literals
 import tornado.httpserver
 import tornado.ioloop
 import tornado.options
@@ -14,7 +14,7 @@ import random
 from robohash import Robohash
 from robohash import SETS
 from robohash import BGSETS
-import re
+# import re
 import io
 import base64
 import json
