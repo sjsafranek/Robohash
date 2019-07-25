@@ -4,6 +4,16 @@ import hashlib
 from PIL import Image
 import natsort
 
+
+
+def _listdirs(path):
+    return [d for d in natsort.natsorted(os.listdir(path)) if os.path.isdir(os.path.join(path, d))]
+
+resourcedir = os.path.dirname(__file__) + '/'
+SETS = _listdirs(resourcedir + 'sets')
+BGSETS = _listdirs(resourcedir + 'backgrounds')
+
+
 class Robohash(object):
     """
     Robohash is a quick way of generating unique avatars for a site.
@@ -196,4 +206,3 @@ class Robohash(object):
 
         self.img = roboimg.resize((sizex,sizey),Image.ANTIALIAS)
         self.format = format
-
